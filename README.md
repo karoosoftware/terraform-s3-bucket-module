@@ -77,6 +77,20 @@ module "bucket" {
 - CORS is only created when `enable_cors = true`.
 - Lambda notification resources are only created when `notification_lambda_arn` is set.
 
+## Release Process
+
+- Open a pull request and let the Terraform validation workflow pass.
+- Merge the change to `main`.
+- Create and push a version tag, for example:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+- Pushing the tag triggers the release workflow and creates the GitHub release.
+- Consume released versions from other Terraform repos by pinning the module source with `?ref=v1.0.0`.
+
 ## Prerequisites
 
 - Terraform 1.x
